@@ -16,7 +16,6 @@ description: Devlog 프로젝트의 빌드 도구 기반 정적 분석 및 품�
     - **Type-check**: 프로젝트 전체 TypeScript 타입 안정성 검사
     - **Knip**: 사용되지 않는 파일, 의존성, Export 항목 검출
     - **Dependency-cruiser**: 패키지 간 의존성 규칙 및 순환 참조 검증
-- **Stryker 돌연변이 테스트**: 테스트 코드의 견고성을 검증하기 위해 증분(incremental) 방식으로 돌연변이 테스트 수행
 - **Devlog 계약 스키마 검증**: `DevlogSession`/`PostArtifact` 스키마 및 예제 payload 검증 스크립트 실행 (존재하는 경우)
 - **MCP 표준 준수 검사**: MCP 인터페이스 및 스키마 검증 스크립트 실행 (존재하는 경우)
 
@@ -30,7 +29,6 @@ description: Devlog 프로젝트의 빌드 도구 기반 정적 분석 및 품�
     - `knip` (Unused items)
     - `dep-cruise` (Dependency rules)
 - **Priority 10 (병렬 테스트)**: `unit-test` (정적 분석 통과 후 실행)
-- **Priority 15 (병렬 돌연변이 테스트)**: `stryker` (유닛 테스트 통과 후 증분 검증)
 - **Priority 20**: `e2e-test`, `contract-validation` (최종 검증)
 
 ## Monorepo Support

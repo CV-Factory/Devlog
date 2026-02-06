@@ -1,5 +1,4 @@
-import { describe, it, expect } from "bun:test";
-import { Server } from "@modelcontextprotocol/sdk/server/index.js";
+import { describe, expect, it } from "bun:test";
 
 // 실제 구현체가 없으므로 일단 껍데기만 테스트
 describe("Devlog MCP Server", () => {

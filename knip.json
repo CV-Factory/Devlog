@@ -1,0 +1,14 @@
+{
+  "$schema": "https://unpkg.com/knip@5/schema.json",
+  "ignore": [".stryker-tmp/**", "node_modules/**"],
+  "ignoreDependencies": ["@stryker-mutator/command-runner"],
+  "ignoreWorkspaces": ["packages/blog"],
+  "workspaces": {
+    ".": {
+      "ignoreDependencies": ["sst"]
+    },
+    "packages/*": {
+      "project": ["src/**/*.ts"]
+    }
+  }
+}

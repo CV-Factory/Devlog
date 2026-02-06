@@ -15,7 +15,7 @@ description: Devlog 프로젝트의 오케스트레이터 에이전트 운영 �
 - **Bun 기반 환경**: 패키지 관리, 런타임, 테스트 러너로 **Bun**을 기본으로 사용한다. 단, pnpm이 명확하게 유리한 특수 상황(예: 복잡한 워크스페이스 의존성 격리 등)을 제외하고는 Bun을 우선한다.
 - **TDD(Test-Driven Development) 필수**: 모든 개발 프로세스는 TDD를 중심축으로 한다. 테스트를 먼저 작성하고(Red), 이를 통과시키며(Green), 리팩터링(Refactor)하는 과정을 엄격히 준수한다.
 - **테스트 설계 방법론 준수**: 모든 테스트 코드는 **EP-BVA(등가 분할/경계값 분석)**, **페어와이즈(Pairwise)**, **상태 전이(State Transition)** 방법론을 기반으로 설계되어야 한다.
-- **병렬 코드 품질 검사(prek) 필수**: 모든 커밋 전 `prek`을 통한 병렬 코드 품질 검사 통과가 필수이다. `prek`은 Rust 기반의 고성능 훅 러너로, 동일 우선순위의 훅을 병렬로 실행하여 검증 시간을 단축한다. 검증 프로세스에는 **Biome**(Lint/Format), **Type-check**, **Knip**(Unused items), **Dependency-cruiser**, **Stryker**(Mutation testing)가 포함된다.
+- **병렬 코드 품질 검사(prek) 필수**: 모든 커밋 전 `prek`을 통한 병렬 코드 품질 검사 통과가 필수이다. `prek`은 Rust 기반의 고성능 훅 러너로, 동일 우선순위의 훅을 병렬로 실행하여 검증 시간을 단축한다. 검증 프로세스에는 **Biome**(Lint/Format), **Type-check**, **Knip**(Unused items), **Dependency-cruiser**가 포함된다.
 - **주요 언어**: 모든 MCP 서버 및 핵심 로직은 **TypeScript**를 기반으로 구현한다.
 - **프론트엔드**: 블로그 프론트엔드는 **React**와 **Next.js**(App Router)를 사용한다.
 - 대화 히스토리는 IDE 로컬 저장소를 읽지 않는다.

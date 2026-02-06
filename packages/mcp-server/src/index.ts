@@ -1,9 +1,7 @@
+import { validateSession } from "@devlog/sdk";
 import { Server } from "@modelcontextprotocol/sdk/server/index.js";
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
-import {
-  CallToolRequestSchema,
-  ListToolsRequestSchema,
-} from "@modelcontextprotocol/sdk/types.js";
+import { CallToolRequestSchema, ListToolsRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 
 /**
  * Devlog MCP Server
@@ -18,7 +16,7 @@ const server = new Server(
     capabilities: {
       tools: {},
     },
-  }
+  },
 );
 
 /**
@@ -82,17 +80,43 @@ server.setRequestHandler(ListToolsRequestSchema, async () => {
 server.setRequestHandler(CallToolRequestSchema, async (request) => {
   const { name, arguments: args } = request.params;
 
-  switch (name) {
-    case "captureSession":
-      return { content: [{ type: "text", text: "Session captured (stub)" }] };
-    case "renderPost":
-      return { content: [{ type: "text", text: "Post rendered (stub)" }] };
-    case "previewPost":
-      return { content: [{ type: "text", text: "Preview URL: http://localhost:3000/preview (stub)" }] };
-    case "publishPost":
-      return { content: [{ type: "text", text: "Post published to " + args?.target + " (stub)" }] };
-    default:
-      throw new Error(`Unknown tool: ${name}`);
+  try {
+    switch (name) {
+      case "captureSession": {
+        const session = validateSession(args?.session);
+        // TODO: 실제 저장 로직 구현 (예: S3, Local File, Database)
+        return {
+          content: [
+            {
+              type: "text",
+              text: `Session captured successfully: ${session.sessionId} (${session.title})`,
+            },
+          ],
+        };
+      }
+      case "renderPost":
+        return { content: [{ type: "text", text: "Post rendered (stub)" }] };
+      case "previewPost":
+        return {
+          content: [{ type: "text", text: "Preview URL: http://localhost:3000/preview (stub)" }],
+        };
+      case "publishPost":
+        return {
+          content: [{ type: "text", text: `Post published to ${args?.target} (stub)` }],
+        };
+      default:
+        throw new Error(`Unknown tool: ${name}`);
+    }
+  } catch (error) {
+    return {
+      isError: true,
+      content: [
+        {
+          type: "text",
+          text: `Error: ${error instanceof Error ? error.message : String(error)}`,
+        },
+      ],
+    };
   }
 });
 

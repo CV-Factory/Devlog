@@ -4,9 +4,33 @@
 repos:
   - repo: local
     hooks:
+      - id: biome-check
+        name: Biome Check
+        entry: bun run lint
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true
+
       - id: type-check
         name: Type Check
         entry: bun run type-check
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true
+
+      - id: knip
+        name: Knip (Unused items)
+        entry: bun run knip
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true
+
+      - id: depcruise
+        name: Dependency Cruiser
+        entry: bun run depcruise
         language: system
         priority: 0
         pass_filenames: false

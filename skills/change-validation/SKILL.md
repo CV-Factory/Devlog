@@ -18,6 +18,7 @@ description: Devlog 프로젝트의 코드 변경 시 품질 게이트 수행 �
 ### 1) 품질 게이트 (필수)
 
 - `devlog-quality-gate`를 활성화하고 해당 절차(Build Tool, Typecheck, Formatter, Test, MCP Standards)를 수행하여 검증을 완료한다.
+- **돌연변이 테스트(선택/권장)**: 중요 로직 변경 시 돌연변이 테스트를 병행하되, 전체 코드베이스가 아닌 변경된 모듈이나 국소적 단위로 나누어 실행한다.
 
 ### 2) Devlog 계약 검증 (필수)
 

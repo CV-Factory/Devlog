@@ -1,0 +1,21 @@
+# prek configuration for Devlog
+# See skills/prek-quality-gate/SKILL.md for priority levels
+
+repos:
+  - repo: local
+    hooks:
+      - id: type-check
+        name: Type Check
+        entry: bun run type-check
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true
+
+      - id: unit-test
+        name: Unit Test
+        entry: bun run test
+        language: system
+        priority: 10
+        pass_filenames: false
+        always_run: true

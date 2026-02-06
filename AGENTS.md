@@ -12,6 +12,7 @@ description: Devlog 프로젝트의 오케스트레이터 에이전트 운영 �
 
 ### 핵심 아키텍처 결정
 
+- **Bun 기반 환경**: 패키지 관리, 런타임, 테스트 러너로 **Bun**을 기본으로 사용한다. 단, pnpm이 명확하게 유리한 특수 상황(예: 복잡한 워크스페이스 의존성 격리 등)을 제외하고는 Bun을 우선한다.
 - **TDD(Test-Driven Development) 필수**: 모든 개발 프로세스는 TDD를 중심축으로 한다. 테스트를 먼저 작성하고(Red), 이를 통과시키며(Green), 리팩터링(Refactor)하는 과정을 엄격히 준수한다.
 - **테스트 설계 방법론 준수**: 모든 테스트 코드는 **EP-BVA(등가 분할/경계값 분석)**, **페어와이즈(Pairwise)**, **상태 전이(State Transition)** 방법론을 기반으로 설계되어야 한다.
 - **병렬 코드 품질 검사(prek) 필수**: 모든 커밋 전 `prek`을 통한 병렬 코드 품질 검사 통과가 필수이다. `prek`은 Rust 기반의 고성능 훅 러너로, 동일 우선순위의 훅을 병렬로 실행하여 검증 시간을 단축한다. 검증 프로세스에는 **Biome**(Lint/Format), **Type-check**, **Knip**(Unused items), **Dependency-cruiser**, **Stryker**(Mutation testing)가 포함된다.
@@ -151,6 +152,7 @@ description: Devlog 프로젝트의 오케스트레이터 에이전트 운영 �
 ### 표준 언어 및 환경
 
 - 최종 산출물/사용자 응대는 한국어를 표준으로 한다.
+- **응답 규칙**: 사용자 응대 시 `system-reminder`와 같은 시스템 내부 용어나 상태 정보를 직접 언급하지 않는다.
 - Git 커밋 메시지 관례를 따르며, Windows PowerShell 환경에 최적화된 명령어를 사용한다.
 - **비대화형 실행 필수**: Git 및 테스트 관련 명령어는 에이전트 환경에서 중단 없이 실행될 수 있도록 반드시 비대화형(Non-interactive) 모드로 실행한다.
   - Git: `git --no-pager`, `git commit -m "..."` (에디터 호출 금지)

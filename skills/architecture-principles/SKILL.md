@@ -8,6 +8,7 @@ description: SOLID, SoC, DRY, SSOT 기반으로 설계를 정리하고 설정 �
 
 ## Checklist
 
+- **TypeScript 기반 구현**: 모든 MCP 서버 및 핵심 비즈니스 로직이 TypeScript로 구현되어 있는가?
 - **MCP 표준 준수**: 개발되는 기능이나 모듈이 MCP(Model Context Protocol) 인터페이스 및 통신 규약을 준수하는가?
 - **계약 우선**: Devlog 수집/렌더/배포는 `DevlogSession` 및 `PostArtifact` 계약을 기준으로 설계되는가?
 - **다중 수집 경로**: MCP 경로가 최우선이되, 비MCP Import(수동/CLI) 경로도 동일 계약으로 수렴하는가?

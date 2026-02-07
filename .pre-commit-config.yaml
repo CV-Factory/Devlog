@@ -43,3 +43,27 @@ repos:
         priority: 10
         pass_filenames: false
         always_run: true
+
+      - id: cargo-check
+        name: Cargo Check
+        entry: cargo check --manifest-path packages/mcp-server-rs/Cargo.toml
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true
+
+      - id: cargo-clippy
+        name: Cargo Clippy
+        entry: cargo clippy --manifest-path packages/mcp-server-rs/Cargo.toml -- -D warnings
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true
+
+      - id: cargo-fmt
+        name: Cargo Format
+        entry: cargo fmt --manifest-path packages/mcp-server-rs/Cargo.toml -- --check
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true

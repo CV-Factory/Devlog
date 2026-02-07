@@ -6,4 +6,26 @@ build
 .env
 .env.local
 *.log
-.DS_Store
+# Cache and temporary files
+.cache
+.turbo
+.parcel-cache
+target/
+.cargo-lock
+Cargo.lock
+debug/
+release/
+
+# Dummy and test artifacts
+dummy/
+temp/
+tmp/
+*.tmp
+*.bak
+*.swp
+
+# IDE and environment
+.idea
+.vscode
+*.sublime-project
+*.sublime-workspace

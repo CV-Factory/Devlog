@@ -19,8 +19,10 @@ description: Devlog 프로젝트의 빌드 도구 기반 정적 분석 및 품�
     - **Cargo check & Clippy**: Rust 코드의 컴파일 오류 및 Lint 검증
     - **Cargo fmt**: Rust 코드 포맷팅 검증
     - **Cargo udeps**: 사용되지 않는 의존성 검출 (Rust, **Nightly 툴체인 필요**)
+        - 윈도우 환경에서는 `nightly-x86_64-pc-windows-gnu` 툴체인 사용을 권장한다. (`rustup default nightly-gnu`)
     - **Cargo audit**: 의존성 보안 취약점 점검 (Rust)
 - **로컬 품질 도구 환경**: 윈도우 환경 제약(MSVC 미설치 등)을 해결하기 위해 `bin/` 디렉토리에 전용 바이너리를 포함하고 있다. (`cargo-udeps`, `cargo-audit`)
+    - `rustup` 설치 시 기본 호스트를 `x86_64-pc-windows-gnu`로 설정하여 MSVC 빌드 도구 없이도 동작하도록 구성한다.
 - **Devlog 계약 스키마 검증**: `DevlogSession`/`PostArtifact` 스키마 및 예제 payload 검증 스크립트 실행 (존재하는 경우)
 - **MCP 표준 준수 검사**: MCP 인터페이스 및 스키마 검증 스크립트 실행 (존재하는 경우)
 

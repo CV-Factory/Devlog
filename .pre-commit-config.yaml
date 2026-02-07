@@ -67,3 +67,19 @@ repos:
         priority: 0
         pass_filenames: false
         always_run: true
+
+      - id: cargo-udeps
+        name: Cargo Udeps (Unused deps)
+        entry: D:/Coding/Devlog/bin/cargo-udeps.exe udeps --manifest-path packages/mcp-server-rs/Cargo.toml
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true
+
+      - id: cargo-audit
+        name: Cargo Audit (Vulnerabilities)
+        entry: D:/Coding/Devlog/bin/cargo-audit.exe audit --file packages/mcp-server-rs/Cargo.lock
+        language: system
+        priority: 0
+        pass_filenames: false
+        always_run: true

@@ -9,7 +9,8 @@ description: SOLID, SoC, DRY, SSOT 기반으로 설계를 정리하고 설정 �
 ## Checklist
 
 - **TDD 기반 설계**: 모든 기능 설계는 테스트 가능성을 우선하며, TDD 사이클(Red-Green-Refactor)을 통해 구현되는가?
-- **TypeScript 기반 구현**: 모든 MCP 서버 및 핵심 비즈니스 로직이 TypeScript로 구현되어 있는가?
+- **Polyglot 전략**: 엔진 및 고성능 모듈은 **Rust**, 프론트엔드 및 인프라는 **TypeScript**로 역할에 맞게 분리되어 구현되는가?
+- **Rust/TS 상호운용성**: Rust 서버와 TS 클라이언트/프론트엔드 간의 데이터 교환이 `DevlogSession` JSON 스키마를 통해 타입 안정성 있게 이루어지는가?
 - **MCP 표준 준수**: 개발되는 기능이나 모듈이 MCP(Model Context Protocol) 인터페이스 및 통신 규약을 준수하는가?
 - **계약 우선**: Devlog 수집/렌더/배포는 `DevlogSession` 및 `PostArtifact` 계약을 기준으로 설계되는가?
 - **다중 수집 경로**: MCP 경로가 최우선이되, 비MCP Import(수동/CLI) 경로도 동일 계약으로 수렴하는가?

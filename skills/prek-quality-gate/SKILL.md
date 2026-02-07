@@ -12,10 +12,12 @@ description: Devlog 프로젝트의 빌드 도구 기반 정적 분석 및 품�
 - **TDD 준수 여부**: 변경된 기능에 대해 테스트가 먼저 작성되었으며, Red-Green-Refactor 사이클을 준수했는지 검증
 - **테스트 설계 방법론 검증**: EP-BVA, 페어와이즈, 상태 전이 방법론이 적절히 적용되었는지 확인
 - **정적 분석 및 품질 도구**:
-    - **Biome**: Lint 및 Formatting 통합 검증
+    - **Biome**: Lint 및 Formatting 통합 검증 (TS/JS)
     - **Type-check**: 프로젝트 전체 TypeScript 타입 안정성 검사
-    - **Knip**: 사용되지 않는 파일, 의존성, Export 항목 검출
-    - **Dependency-cruiser**: 패키지 간 의존성 규칙 및 순환 참조 검증
+    - **Knip**: 사용되지 않는 파일, 의존성, Export 항목 검출 (TS)
+    - **Dependency-cruiser**: 패키지 간 의존성 규칙 및 순환 참조 검증 (TS)
+    - **Cargo check & Clippy**: Rust 코드의 컴파일 오류 및 Lint 검증
+    - **Cargo fmt**: Rust 코드 포맷팅 검증
 - **Devlog 계약 스키마 검증**: `DevlogSession`/`PostArtifact` 스키마 및 예제 payload 검증 스크립트 실행 (존재하는 경우)
 - **MCP 표준 준수 검사**: MCP 인터페이스 및 스키마 검증 스크립트 실행 (존재하는 경우)
 
@@ -28,7 +30,10 @@ description: Devlog 프로젝트의 빌드 도구 기반 정적 분석 및 품�
     - `type-check` (tsc)
     - `knip` (Unused items)
     - `dep-cruise` (Dependency rules)
-- **Priority 10 (병렬 테스트)**: `unit-test` (정적 분석 통과 후 실행)
+    - `cargo check` (Rust compile check)
+    - `cargo clippy` (Rust lint)
+- **Priority 10 (병렬 테스트)**:
+    - `unit-test` (Bun/Rust unit tests)
 - **Priority 20**: `e2e-test`, `contract-validation` (최종 검증)
 
 ## Monorepo Support

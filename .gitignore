@@ -8,6 +8,9 @@ build
 *.log
 # Cache and temporary files
 bin/
+*.exe
+*.dll
+*.pdb
 .cache
 .turbo
 .parcel-cache
